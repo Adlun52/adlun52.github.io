@@ -1,76 +1,9 @@
-<?php
-// =========================================================
-// 💖 CONFIGURATION: ENCHANTED PRINCESS EDITION (UPDATED) 💖
-// =========================================================
-
-$wifeName = "Simin"; 
-$pageTitle = "For My Princess, " . $wifeName;
-
-// 1. MUSIC
-$musicFile = ""; // Upload mp3 and put name here (e.g., 'song.mp3')
-
-// 2. THE AVATAR
-$avatarImg = "4.png";
-
-// 3. THE HIDDEN LETTER
-$letterContent = "My dearest love,
-
-Happy Birthday to the most beautiful woman in my life — my wife, my best friend, my peace, and my greatest blessing.
-
-From the moment you came into my life, everything changed for the better. Your smile brightens my darkest days, your love gives me strength, and your presence makes every ordinary moment feel special. I am endlessly grateful to call you my wife.
-
-Thank you for loving me the way you do, for supporting me even when things aren’t easy, and for filling our home with warmth, laughter, and care. You make my life complete in ways words can never fully express.
-
-On your special day, I pray that all your dreams come true, that happiness follows you wherever you go, and that your life is filled with good health, success, and endless joy. I promise to stand by you, love you, and cherish you not just today, but every day for the rest of my life.
-
-Happy Birthday, my love. You are my today, my tomorrow, and my forever.
-
-With all my love,";
-
-// 4. PHOTOS (The Polaroid Gallery)
-$photos = [
-    "1.jpeg",
-    "3.jpeg",
-    "2.jpeg"
-];
-
-// 5. THE GIFT
-$giftTitle = "A Spa Day Just for You";
-$giftSubtitle = "Relax, unwind, and let me take care of everything.";
-
-// --- SURPRISE FEATURES CONFIGURATION ---
-
-// 6. "REASONS I LOVE YOU" LIST
-$loveReasons = [
-    "Your laugh is my favorite sound.",
-    "You make the best coffee in the world.",
-    "You always know how to cheer me up.",
-    "Your kindness to others inspires me.",
-    "You are the most beautiful woman in any room.",
-    "I love how your nose crinkles when you smile."
-];
-
-// 7. COUNTDOWN TIMER
-$targetDate = "October 25, 2025 19:00:00"; 
-$countdownTitle = "Time until our special dinner:";
-
-// 8. THE MEMORY VAULT
-$vaultQuestion = "Where was our first date?"; // The question
-$vaultAnswer = "BFC"; // The answer (make sure it's lowercase for checking)
-$vaultSecretMessage = "You remembered! That was the day my life truly began.";
-$vaultSecretImage = "5.jpeg"; 
-
-// =========================================================
-// END CONFIGURATION
-// =========================================================
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title><?php echo $pageTitle; ?></title>
+    <title>For My Princess, Simin</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -233,8 +166,9 @@ $vaultSecretImage = "5.jpeg";
             display: none; background: white; padding: 30px; border-radius: 20px; text-align: left;
             position: relative; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 2px dashed var(--pink-hot);
             animation: unfold 0.6s ease-out;
+            white-space: pre-wrap; /* Keeps line breaks from the text */
         }
-        .letter-open p { line-height: 1.8; color: #555; font-size: 1.1rem; }
+        .letter-open p { line-height: 1.8; color: #555; font-size: 1.1rem; margin: 0; }
 
         /* GIFT */
         .gift-btn {
@@ -288,26 +222,17 @@ $vaultSecretImage = "5.jpeg";
 
     <canvas id="particle-canvas"></canvas>
 
-    <?php if(!empty($musicFile)): ?>
-    <audio id="bgMusic" loop>
-        <source src="<?php echo $musicFile; ?>" type="audio/mpeg">
-    </audio>
-    <div class="music-toggle" onclick="toggleMusic()">
-        <i class="fas fa-music"></i>
-    </div>
-    <?php endif; ?>
-
     <div class="kiss-btn" onclick="sendKisses()">💋</div>
 
     <div class="glass-card">
         <div class="avatar-container">
             <div class="crown">👑</div>
-            <img src="<?php echo $avatarImg; ?>" class="avatar-img">
+            <img src="4.png" class="avatar-img" alt="Avatar">
         </div>
 
-        <h1><?php echo $wifeName; ?></h1>
+        <h1>Simin</h1>
 
-        <p style="color: var(--pink-deep); font-weight: bold; margin-bottom: 5px;"><?php echo $countdownTitle; ?></p>
+        <p style="color: var(--pink-deep); font-weight: bold; margin-bottom: 5px;">Time until our special dinner:</p>
         <div class="countdown-container" id="countdown">
             <div class="time-box"><div class="time-val" id="days">00</div><div class="time-label">Days</div></div>
             <div class="time-box"><div class="time-val" id="hours">00</div><div class="time-label">Hrs</div></div>
@@ -316,11 +241,9 @@ $vaultSecretImage = "5.jpeg";
         </div>
 
         <div class="gallery-container">
-            <?php foreach($photos as $photo): ?>
-            <div class="polaroid">
-                <img src="<?php echo $photo; ?>">
-            </div>
-            <?php endforeach; ?>
+            <div class="polaroid"><img src="1.jpeg" alt="Memory 1"></div>
+            <div class="polaroid"><img src="3.jpeg" alt="Memory 2"></div>
+            <div class="polaroid"><img src="2.jpeg" alt="Memory 3"></div>
         </div>
 
         <div class="love-generator-box">
@@ -336,14 +259,14 @@ $vaultSecretImage = "5.jpeg";
         <div class="vault-box">
             <i class="fas fa-lock" style="font-size: 1.5rem; color: var(--pink-deep); margin-bottom: 10px;"></i>
             <div style="font-weight: bold; color: #555;">The Memory Vault</div>
-            <p style="font-size: 0.9rem; margin: 5px 0;"><?php echo $vaultQuestion; ?></p>
+            <p style="font-size: 0.9rem; margin: 5px 0;">Where was our first date?</p>
             
             <input type="text" id="vaultInput" class="vault-input" placeholder="Type answer here...">
             <button class="vault-btn" onclick="checkVault()">Unlock</button>
 
             <div class="hidden-vault-content" id="vaultContent">
-                <p style="color: var(--pink-deep); font-weight: bold; font-size: 1.1rem;"><?php echo $vaultSecretMessage; ?></p>
-                <img src="<?php echo $vaultSecretImage; ?>" class="vault-img">
+                <p style="color: var(--pink-deep); font-weight: bold; font-size: 1.1rem;">You remembered! That was the day my life truly began.</p>
+                <img src="5.jpeg" class="vault-img" alt="Secret Memory">
             </div>
         </div>
 
@@ -353,8 +276,20 @@ $vaultSecretImage = "5.jpeg";
                 Read My Heart
             </div>
             <div class="letter-open" id="letterOpen">
-                <p><?php echo nl2br($letterContent); ?></p>
-                <div style="text-align: right; color: var(--pink-hot); font-weight: bold;">- Your Hubby</div>
+                <p>My dearest love,
+
+Happy Birthday to the most beautiful woman in my life — my wife, my best friend, my peace, and my greatest blessing.
+
+From the moment you came into my life, everything changed for the better. Your smile brightens my darkest days, your love gives me strength, and your presence makes every ordinary moment feel special. I am endlessly grateful to call you my wife.
+
+Thank you for loving me the way you do, for supporting me even when things aren’t easy, and for filling our home with warmth, laughter, and care. You make my life complete in ways words can never fully express.
+
+On your special day, I pray that all your dreams come true, that happiness follows you wherever you go, and that your life is filled with good health, success, and endless joy. I promise to stand by you, love you, and cherish you not just today, but every day for the rest of my life.
+
+Happy Birthday, my love. You are my today, my tomorrow, and my forever.
+
+With all my love,</p>
+                <div style="text-align: right; color: var(--pink-hot); font-weight: bold; margin-top:20px;">- Your Hubby</div>
             </div>
         </div>
 
@@ -363,18 +298,36 @@ $vaultSecretImage = "5.jpeg";
         </button>
 
         <div class="gift-content" id="giftContent">
-            <h2 style="font-family: 'Fredoka One'; color: var(--pink-deep); margin-bottom: 5px;"><?php echo $giftTitle; ?></h2>
-            <p style="font-weight: bold; color: #555;"><?php echo $giftSubtitle; ?></p>
+            <h2 style="font-family: 'Fredoka One'; color: var(--pink-deep); margin-bottom: 5px;">A Spa Day Just for You</h2>
+            <p style="font-weight: bold; color: #555;">Relax, unwind, and let me take care of everything.</p>
             <i class="fas fa-gift" style="font-size: 3rem; color: var(--pink-hot); margin-top: 15px; animation: float 2s infinite;"></i>
         </div>
 
     </div>
 
     <script>
-        // --- PHP DATA TO JS ---
-        const loveReasons = <?php echo json_encode($loveReasons); ?>;
-        const targetDate = new Date("<?php echo $targetDate; ?>").getTime();
-        const correctAnswer = "<?php echo strtolower($vaultAnswer); ?>";
+        // =========================================================
+        // ⚙️ CONFIGURATION (JAVASCRIPT)
+        // =========================================================
+        
+        const loveReasons = [
+            "Your laugh is my favorite sound.",
+            "You make the best coffee in the world.",
+            "You always know how to cheer me up.",
+            "Your kindness to others inspires me.",
+            "You are the most beautiful woman in any room.",
+            "I love how your nose crinkles when you smile."
+        ];
+        
+        // Date format: "Month Day, Year HH:MM:SS"
+        const targetDate = new Date("October 25, 2025 19:00:00").getTime();
+        
+        // The answer to the vault question (must be lowercase)
+        const correctAnswer = "bfc";
+
+        // =========================================================
+        // END CONFIGURATION
+        // =========================================================
 
         // 1. PARTICLES BACKGROUND
         const canvas = document.getElementById('particle-canvas');
@@ -492,7 +445,7 @@ $vaultSecretImage = "5.jpeg";
             }
         }
 
-        // 8. VAULT LOGIC (NEW)
+        // 8. VAULT LOGIC
         function checkVault() {
             const input = document.getElementById('vaultInput').value.toLowerCase().trim();
             if(input === correctAnswer) {
@@ -506,7 +459,7 @@ $vaultSecretImage = "5.jpeg";
             }
         }
 
-        // 9. TYPEWRITER EFFECT (NEW)
+        // 9. TYPEWRITER EFFECT
         const poemText = "In a sea of people, my eyes will always search for you. You are my favorite thought.";
         const typeWriterElement = document.getElementById('typewriterText');
         let charIndex = 0;
